@@ -1,6 +1,9 @@
 % function result = form_correct(filename,maybe something else)
+clc
+clear all
+
 addpath('/Data')
-trial = filter_data('B3');
+trial = filter_data('B2');
 x_rms = rms(trial(:,2))
 y_rms = rms(trial(:,3))
 z_rms = rms(trial(:,4))
@@ -9,27 +12,34 @@ x_thresh = 32;
 y_thresh = 41;
 z_thresh = 30;
 
-if (x_rms > x_thresh || y_rms > y_thresh || z_rms > z_thresh)
-    if (x_rms > x_thresh) && (y_rms <= y_thresh) && (z_rms <= z_thresh)  %just x wrong
-        disp('wrong x')
-    end
-    if (y_rms > y_thresh) && (x_rms <= x_thresh) && (z_rms <= z_thresh)  %just y wrong
-        disp('wrong y')
-    end
-    if (z_rms > z_thresh) && (x_rms <= x_thresh) && (y_rms <= y_thresh)  %just z wrong
-        disp('wrong z')
-    end
-    if (x_rms > x_thresh) && (y_rms > y_thresh) && (z_rms <= z_thresh)  %x and y wrong
-        disp('wrong x and y')
-    end
-    if (y_rms > y_thresh) && (x_rms <= x_thresh) && (z_rms > z_thresh)  %y and z wrong
-        disp('wrong y and z')
-    end
-    if (z_rms > z_thresh) && (x_rms > x_thresh) && (y_rms <= y_thresh)  %x and z wrong
-        disp('wrong x and z')
-    end
-    if (x_rms > x_thresh) && (y_rms > y_thresh) && (z_rms > z_thresh)  %all three wrong
-        disp('wrong x')
+x_error = (x_rms-x_thresh)/x_thresh
+y_error = (y_rms-y_thresh)/y_thresh
+z_error = (z_rms-z_thresh)/z_thresh
+
+errors = [x_error y_error z_error];
+
+if (max(errors) == errors(1) && errors(1) > 0)
+    disp('bad x')
+elseif (max(errors) == errors(3) && errors(3) > 0)
+    disp('bad z')
+else
+    disp('gucci swag')
+end
+% if (x_rms > x_thresh || y_rms > y_thresh || z_rms > z_thresh)
+%     if (x_rms > x_thresh) && (y_rms <= y_thresh) && (z_rms <= z_thresh)  %just x wrong
+%         disp('wrong x')
+%     elseif (y_rms > y_thresh) && (x_rms <= x_thresh) && (z_rms <= z_thresh)  %just y wrong
+%         disp('wrong y')
+%     elseif (z_rms > z_thresh) && (x_rms <= x_thresh) && (y_rms <= y_thresh)  %just z wrong
+%         disp('wrong z')
+%     elseif (x_rms > x_thresh) && (y_rms > y_thresh) && (z_rms <= z_thresh)  %x and y wrong
+%         disp('wrong x and y')
+%     elseif (y_rms > y_thresh) && (x_rms <= x_thresh) && (z_rms > z_thresh)  %y and z wrong
+%         disp('wrong y and z')
+%     elseif (z_rms > z_thresh) && (x_rms > x_thresh) && (y_rms <= y_thresh)  %x and z wrong
+%         disp('wrong x and z')
+%     elseif (x_rms > x_thresh) && (y_rms > y_thresh) && (z_rms > z_thresh)  %all three wrong
+%         disp('all wrong')
     end
 else
     disp('Nice! Your form was correct.')
