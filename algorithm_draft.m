@@ -2,13 +2,13 @@
 clc
 clear all
 
-addpath('/Data')
-trial = filter_data('B2');
+addpath('Data\')
+trial = filter_data('GBlack10');
 x_rms = rms(trial(:,2))
 y_rms = rms(trial(:,3))
 z_rms = rms(trial(:,4))
 
-x_thresh = 32;
+x_thresh = 40;
 y_thresh = 41;
 z_thresh = 30;
 
@@ -16,11 +16,11 @@ x_error = (x_rms-x_thresh)/x_thresh
 y_error = (y_rms-y_thresh)/y_thresh
 z_error = (z_rms-z_thresh)/z_thresh
 
-errors = [x_error y_error z_error];
+errors = [x_error z_error];
 
 if (max(errors) == errors(1) && errors(1) > 0)
     disp('bad x')
-elseif (max(errors) == errors(3) && errors(3) > 0)
+elseif (max(errors) == errors(2) && errors(2) > 0)
     disp('bad z')
 else
     disp('gucci swag')
@@ -40,10 +40,10 @@ end
 %         disp('wrong x and z')
 %     elseif (x_rms > x_thresh) && (y_rms > y_thresh) && (z_rms > z_thresh)  %all three wrong
 %         disp('all wrong')
-    end
-else
-    disp('Nice! Your form was correct.')
-end
+%     end
+% else
+%     disp('Nice! Your form was correct.')
+% end
 
 
 
