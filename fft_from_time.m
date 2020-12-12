@@ -1,8 +1,7 @@
-function [data] = fft_from_time(time_data, Fs)
-%time_data 3xn
-%col 1: x
-%col 2: y
-%col 3: z
+function data = fft_from_time(time_data, Fs)
+%fft_from_time perfoms the fast fourier transform on time_data
+%time_data: [3 x N]: col 1: x, col 2: y, col 3: z
+%Fs: sampling rate data was collected at
 
 %take shifted fft
 fft_x = fftshift(fft(time_data(:,1)));

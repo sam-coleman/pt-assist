@@ -1,8 +1,13 @@
-function [data] = get_fft(filename, Fs)
-%performs the shifted fft on data collected from phone
+function [data] = get_fft(file_name, Fs)
+%get_fft performs the shifted fast fourier transform on time domain data
+%filename: name of data file. Note: must be in Data folder
+%Fs: sampling rate data was collected at
+%data matrix structure defined below
+
+    addpath('Data\') %add data folder to path
     
     %parse and trim data
-    [MotionData] = ParseMatlabAppFinal(filename);
+    [MotionData] = ParseMatlabAppFinal(file_name);
     a_x = MotionData.Accel(10:end-10,1);
     a_y = MotionData.Accel(10:end-10,2);
     a_z = MotionData.Accel(10:end-10,3);

@@ -3,6 +3,8 @@ function [MotionData]=ParseMatlabAppFinal(filename)
 %the matlab "timetable" format, to a simple ".mat" file. This code assumes
 %you have saved Acceleration, Orientation, and Angular Velocity.
 
+%this function given to us by QEA Professors
+
 %load data file that was collected using the Matlab app
 load(filename,'Acceleration','Orientation','AngularVelocity')
 
