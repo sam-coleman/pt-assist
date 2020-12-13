@@ -1,4 +1,4 @@
-function [] = algorithm_draft(file_name)
+function result = algorithm_draft(file_name)
 % algorithm_draft classifies a paloff press execution as correct or incorrect
 % file_name: name of data file. Note: must be in Data folder
 
@@ -27,12 +27,15 @@ errors = [x_error y_error z_error]; %package into vector for ease
 if (max(errors) == errors(1) && errors(1) > 0) %if x_erorr is greatest and positive
     disp('You are doing the paloff press incorrectly.')
     disp('You are going too inwards/outwards, try being more perpendicular to your body. Consult your PT if needed.')
+    result = 0;
 elseif (max(errors) == errors(3) && errors(3) > 0) %if z_erorr is greatest and positive
     disp('You are doing the paloff press incorrectly.')
     disp('You are going too high or low, try being more parallel to the ground. Consult your PT if needed.')
+    result = 1;
 else %if not above, you are correct!
     disp('Good Job! You are doing the paloff press correctly.')
     disp('Be sure to always exercise within your limits.')
+    result = 2;
 end
 end
 
