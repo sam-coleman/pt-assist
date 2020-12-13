@@ -11,10 +11,12 @@ y_rms = rms(trial(:,3));
 z_rms = rms(trial(:,4));
 
 %max rms values for good exercise
-%these were calculated from looking at sample data for good and bad trials
-x_thresh = 40;
-y_thresh = 41;
-z_thresh = 30;
+%these were calculated from taking the standard deviation of the rms values of sample data
+%for good trials and adding that value to the maximum rms in the set for
+%each direction. See test_rms.mlx for this testing code.
+x_thresh = 33.9518;
+y_thresh = 52.8098;
+z_thresh = 29.7436;
 
 %calculate percent error for all axes (trial vs max acceptable rms value)
 x_error = (x_rms-x_thresh)/x_thresh;
