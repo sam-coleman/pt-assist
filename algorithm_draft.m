@@ -29,7 +29,7 @@ if (max(errors) == errors(1) && errors(1) > 0) %if x_erorr is greatest and posit
     disp('You are going too inwards/outwards, try being more perpendicular to your body. Consult your PT if needed.')
 elseif (max(errors) == errors(3) && errors(3) > 0) %if z_erorr is greatest and positive
     disp('You are doing the paloff press incorrectly.')
-    disp('You are going goo high or low, try being more parallel to the ground. Consult your PT if needed.')
+    disp('You are going too high or low, try being more parallel to the ground. Consult your PT if needed.')
 else %if not above, you are correct!
     disp('Good Job! You are doing the paloff press correctly.')
     disp('Be sure to always exercise within your limits.')
