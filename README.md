@@ -6,4 +6,4 @@ Physical Therapy (PT) Assist analyzes motion data collected on a smartphone to d
 - to learn how to collect data, visit our [project website](https://rsarinolin.wixsite.com/pt-assist)
 
 ## Learn More
-To learn the motivating math behind PT Visit, visit our [website](https://rsarinolin.wixsite.com/pt-assist)
+To learn the motivating math behind PT Assit, visit our [website](https://rsarinolin.wixsite.com/pt-assist)
